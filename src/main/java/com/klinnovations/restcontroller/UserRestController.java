@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.klinnovations.entity.User;
-import com.klinnovations.service.UserService;
+import com.klinnovations.service.UserServiceImpl;
 
 
 @RestController
 public class UserRestController {
 	
 	@Autowired
-	private UserService userService;
+	private UserServiceImpl userService;
 	
 	@PostMapping("/user")
    public ResponseEntity<User> addUser(@RequestBody User user){
@@ -43,7 +43,7 @@ public class UserRestController {
 	
 	@DeleteMapping("deleteuser/{id}")
 	public ResponseEntity<User> deleteUser(@PathVariable  int id){
-		
+
 		User deleteUser = userService.deleteUser(id);
 		if(deleteUser != null) {
 			return ResponseEntity.ok(deleteUser);
