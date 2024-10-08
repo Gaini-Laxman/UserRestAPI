@@ -11,7 +11,7 @@ import com.klinnovations.repo.UserRepository;
 
 
 @Service
-public class UserServiceImpl {
+public class UserServiceImpl implements UserService {
 	
 	@Autowired
 	private UserRepository userRepository;
